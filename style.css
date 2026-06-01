@@ -1,0 +1,136 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.container {
+  padding: 0 15px;
+  width: 75%;
+  margin: 0 auto;
+  outline: 1px solid red;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.product-card {
+  box-shadow: 1px 1px 30px 20px gray;
+  transition: all 250ms ease-out;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 6px 6px 30px 20px gray;
+}
+
+/* Перша картка на всю ширину */
+.product-card:first-child {
+  grid-column: span 2;
+}
+
+/* Контейнер для позиціонування */
+.product-img {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Бейдж "Хіт продажів" */
+.product-card:first-child .product-img::before {
+  content: "Хіт продажів";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+
+  padding: 6px 12px;
+  border-radius: 4px;
+
+  background-color: crimson;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+
+  z-index: 2;
+}
+
+/* Блок з кнопкою */
+.product-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.4);
+
+  opacity: 0;
+
+  transition: opacity 250ms ease-out;
+  transition-delay: 100ms;
+}
+
+/* Поява при наведенні на зображення */
+.product-img:hover .product-actions {
+  opacity: 1;
+}
+
+/* Кнопка */
+.action-btn {
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+
+  background-color: royalblue;
+  color: white;
+  cursor: pointer;
+
+  transition:
+    background-color 250ms ease-out,
+    transform 250ms ease-out;
+}
+
+/* Hover */
+.action-btn:hover {
+  background-color: dodgerblue;
+  transform: scale(1.05);
+}
+
+/* Active */
+.action-btn:active {
+  background-color: navy;
+  transform: scale(0.95);
+}
+
+.product-info {
+  padding: 16px;
+}
+
+.product-name {
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-weight: 700;
+  color: green;
+}
